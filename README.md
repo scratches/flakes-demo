@@ -1,11 +1,13 @@
-This is expected:
+The flake has a `defaultPackage` attribute, so you can `nix shell` to put the packages it defines on your path.
+
+This can happen if you don't declare a `defaultPackage` in the flake:
 
 ```
 $ nix shell
 error: flake 'git+file:///home/dsyer/dev/scratch/flakes-demo' does not provide attribute 'packages.x86_64-linux.default' or 'defaultPackage.x86_64-linux'
 ```
 
-It means there is no default package in the flake.  You can still use the flake to set up a shell:
+You can still use the flake to set up a shell with `nix develop`:
 
 ```
 $ nix develop
